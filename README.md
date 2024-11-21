@@ -4,13 +4,13 @@
 
 Скриншот ЛК Yandex Cloud
 
-![Скриншот](https://github.com/garrkiss/terraform_1/blob/main/img/terraform_validate.png)
+![Скриншот](https://github.com/garrkiss/terraform_2/blob/main/img/task1/task1.png)
 
 ### Ошибки
 
 1. 
 
-![Скриншот](1.png)
+![Скриншот](https://github.com/garrkiss/terraform_2/blob/main/img/task1/error%20task1/1.png)
 
 Ответ:
 Прописать правильный путь расположения файла authorized_key.json
@@ -29,49 +29,31 @@ zone = var.default_zone
 
 3. 
 
-![Скриншот](3.png)
+![Скриншот](https://github.com/garrkiss/terraform_2/blob/main/img/task1/error%20task1/3.png)
 
 Ответ:
 Неправильный идентификатор платформы для resource "yandex_compute_instance" "platform"
 Прописал platform_id = "standard-v3"
 
 4. 
-![Скриншот](4.png)
+![Скриншот](https://github.com/garrkiss/terraform_2/blob/main/img/task1/error%20task1/4.png)
 
 Ответ:
 Неправильное значение ядра для resource "yandex_compute_instance" "platform"
 Прописал core_fraction = 20
 
 5. 
-![Скриншот](5.png)
+![Скриншот](https://github.com/garrkiss/terraform_2/blob/main/img/task1/error%20task1/5.png)
 
 Ответ:
 Неправильное значение числа ядер для resource "yandex_compute_instance" "platform"
-cores = 2
+Прописал cores = 2
+
+SSH и CURL
+![Скриншот](https://github.com/garrkiss/terraform_2/blob/main/img/task1/task1-1.png)
 
 
-### Исправленый код
-```
-resource "docker_image" "nginx" {
-  name         = "nginx:latest"
-  keep_locally = true
-}
 
-resource "docker_container" "nginx" {
-  image = docker_image.nginx.image_id
-  name  = "example_${random_password.random_string.result}"
-
-  ports {
-    internal = 80
-    external = 9090
-  }
-}
-
-```
-
-![Dockeps](https://github.com/garrkiss/terraform_1/blob/main/img/dockerps.png)
-
-![Dockeps](https://github.com/garrkiss/terraform_1/blob/main/img/dockerps_hello.png)
 
 Опасность использования ключа -auto-approve:
 Ключ -auto-approve в Terraform используется для того, чтобы пропустить шаг подтверждения перед применением изменений. Это может быть полезно в автоматизированных сценариях, где нужно избежать вмешательства пользователя, например, в CI/CD pipeline. Однако есть несколько рисков, связанных с его использованием:
